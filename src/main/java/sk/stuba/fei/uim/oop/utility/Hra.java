@@ -63,20 +63,20 @@ public class Hra {
                 HodnotaPola=HodnotaPola+1;
             }}
             PoleHracejPlochy[CurrentY][CurrentX]=HodnotaPola;
-
-            if(CurrentY<SizeOfBoard-1){
-                HladaniePoli(CurrentY+1, CurrentX);
+            if(HodnotaPola==2) {
+                if (CurrentY < SizeOfBoard - 1) {
+                    HladaniePoli(CurrentY + 1, CurrentX);
+                }
+                if (CurrentY > 0) {
+                    HladaniePoli(CurrentY - 1, CurrentX);
+                }
+                if (CurrentX < SizeOfBoard - 1) {
+                    HladaniePoli(CurrentY, CurrentX + 1);
+                }
+                if (CurrentX > 0) {
+                    HladaniePoli(CurrentY, CurrentX - 1);
+                }
             }
-            if(CurrentY>0){
-                HladaniePoli(CurrentY-1, CurrentX);
-            }
-            if(CurrentX<SizeOfBoard-1){
-                HladaniePoli(CurrentY, CurrentX+1);
-            }
-            if(CurrentX>0){
-                HladaniePoli(CurrentY, CurrentX-1);
-            }
-
 
         }
 
