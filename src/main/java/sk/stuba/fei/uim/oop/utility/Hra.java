@@ -3,12 +3,13 @@ import java.util.Random;
 
 public class Hra {
     private Random NahodnyVyber=new Random();
+    public int UkoncenieHry=0;
     public int[][] PoleHracejPlochy;
     public int SizeOfBoard;
     public int Obtiaznost;
     public int BlockComparisonValue=0;
     public void VytvoreniePlochy(int velkost){
-        Obtiaznost=ZKlavesnice.readInt("Zadaj obtiaznost od 1 do 10");
+        Obtiaznost=ZKlavesnice.readInt("Zadaj obtiaznost od 1 do 100 (sto znamena ze takmer kazde policko je mina)");
         PoleHracejPlochy=new int[velkost][velkost];
         SizeOfBoard=velkost;
 
@@ -104,9 +105,11 @@ public class Hra {
             System.out.print(VykreslenieY+1);
             for (VykreslenieX=0;VykreslenieX<SizeOfBoard;VykreslenieX++){
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==0){
-                    System.out.print(" o ");}
+                    char VypisnaPremenna1=240;
+                    System.out.print(" ■ ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==1){
-                    System.out.print(" x ");}
+                    char VypisnaPremenna2=240;
+                    System.out.print(" ■ ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==2){
                     System.out.print("   ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==3){

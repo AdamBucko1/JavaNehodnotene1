@@ -19,6 +19,10 @@ public class Main {
         XPozicia = XPozicia - 1;
         objektHra.HladaniePoli(YPozicia, XPozicia);
         objektHra.VykreslenieHracejPlochy();
+        if (objektHra.UkoncenieHry==1){
+            System.out.println("Prehral si");
+            break;
+        }
     }
 
     }
