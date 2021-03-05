@@ -28,7 +28,10 @@ public class Main {
                testVlajky=objektHra.VyberVlajky(YpoziciaVlajky,XpoziciaVlajky);
 
            }while (testVlajky==0);
-            objektHra.VykreslenieHracejPlochy();
+            if (objektHra.VykreslenieHracejPlochy()==1){
+                objektHra.VypisVyhry();
+                break;
+            }
             continue;
         }
         int XPozicia = ZKlavesnice.readInt("X:");
@@ -39,5 +42,8 @@ public class Main {
             break;
         }
         objektHra.HladaniePoli(YPozicia, XPozicia);
-        objektHra.VykreslenieHracejPlochy();
+        if (objektHra.VykreslenieHracejPlochy()==1) {
+            objektHra.VypisVyhry();
+            break;
+        }
     }}}

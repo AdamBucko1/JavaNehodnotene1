@@ -88,7 +88,8 @@ public class Hra {
     }
 
 
-    public void VykreslenieHracejPlochy(){
+    public int VykreslenieHracejPlochy(){
+        int VyherneCislo=0;
         int VykreslenieY=0;
         int VykreslenieX=0;
         int Cyklus1=0;
@@ -113,6 +114,7 @@ public class Hra {
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==0){
                     System.out.print(" ■ ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==1){
+                    VyherneCislo=VyherneCislo+1;
                     System.out.print(" ■ ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==2){
                     System.out.print("   ");}
@@ -137,7 +139,11 @@ public class Hra {
             }
             System.out.println("");
         }
-
+    if (VyherneCislo==0){
+        return 1;
+    }
+    else
+        return 0;
     }
         private int VyberPolicka(){
         int MineBlock;
