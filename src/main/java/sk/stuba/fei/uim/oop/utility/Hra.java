@@ -19,13 +19,11 @@ public class Hra {
                 int BlockComparisonValueVCykle=NahodnyVyber.nextInt(100);
                 BlockComparisonValue=BlockComparisonValueVCykle;
                 PoleHracejPlochy[stlpec][riadok]=VyberPolicka();
-
-
             }
-
         }
     VykreslenieHracejPlochy();
     }
+
     public void HladaniePoli(int CurrentY, int CurrentX){
         if(PoleHracejPlochy[CurrentY][CurrentX]==0) {
             int HodnotaPola=2;
@@ -81,6 +79,14 @@ public class Hra {
         }
 
     }
+    public int DidILose (int YPozicia,int XPozicia){
+        if (PoleHracejPlochy[YPozicia][XPozicia]==1){
+            return 1;
+        }
+        else
+            return 0;
+    }
+
 
     public void VykreslenieHracejPlochy(){
         int VykreslenieY=0;
@@ -105,10 +111,8 @@ public class Hra {
             System.out.print(VykreslenieY+1);
             for (VykreslenieX=0;VykreslenieX<SizeOfBoard;VykreslenieX++){
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==0){
-                    char VypisnaPremenna1=240;
                     System.out.print(" ■ ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==1){
-                    char VypisnaPremenna2=240;
                     System.out.print(" ■ ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==2){
                     System.out.print("   ");}
@@ -128,6 +132,8 @@ public class Hra {
                     System.out.print(" 7 ");}
                 if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==10){
                     System.out.print(" 8 ");}
+                if (PoleHracejPlochy[VykreslenieY][VykreslenieX]==11){
+                    System.out.print(" ! ");}
             }
             System.out.println("");
         }
@@ -153,9 +159,64 @@ public class Hra {
         else{
             return 1;
         }
+        }
+
+        public int VyberVlajky(int YpoziciaVlajky,int XpoziciaVlajky){
+        if (PoleHracejPlochy[YpoziciaVlajky][XpoziciaVlajky]!=1){
+            System.out.println("Vlajku nemozno polozit");
+            return 0;
+        }
+        else {PoleHracejPlochy[YpoziciaVlajky][XpoziciaVlajky]=11;
+            return 1;
+        }
+
+        }
+
+        public void VypisLoga(){
+            System.out.println(".----------------.  .----------------.  .-----------------. .----------------.  .----------------.");
+            System.out.println("| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |");
+            System.out.println("| | ____    ____ | || |     _____    | || | ____  _____  | || |  _________   | || |    _______   | |");
+            System.out.println("| ||_   \\  /   _|| || |    |_   _|   | || ||_   \\|_   _| | || | |_   ___  |  | || |   /  ___  |  | |");
+            System.out.println("| |  |   \\/   |  | || |      | |     | || |  |   \\ | |   | || |   | |_  \\_|  | || |  |  (__ \\_|  | |");
+            System.out.println("| |  | |\\  /| |  | || |      | |     | || |  | |\\ \\| |   | || |   |  _|  _   | || |   '.___`-.   | |");
+            System.out.println("| | _| |_\\/_| |_ | || |     _| |_    | || | _| |_\\   |_  | || |  _| |___/ |  | || |  |`\\____) |  | |");
+            System.out.println("| ||_____||_____|| || |    |_____|   | || ||_____|\\____| | || | |_________|  | || |  |_______.'  | |");
+            System.out.println("| |              | || |              | || |              | || |              | || |              | |");
+            System.out.println("| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |");
+            System.out.println(" '----------------'  '----------------'  '----------------'  '----------------'  '----------------' ");
 
 
+        }
 
+        public void VypisPrehry(){
+            System.out.println("▓██   ██▓ ▒█████   █    ██     ██▓     ▒█████    ██████ ▄▄▄█████▓ ▐██▌ ");
+            System.out.println(" ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▓██▒    ▒██▒  ██▒▒██    ▒ ▓  ██▒ ▓▒ ▐██▌ ");
+            System.out.println("  ▒██ ██░▒██░  ██▒▓██  ▒██░   ▒██░    ▒██░  ██▒░ ▓██▄   ▒ ▓██░ ▒░ ▐██▌ ");
+            System.out.println("  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ▒██░    ▒██   ██░  ▒   ██▒░ ▓██▓ ░  ▓██▒ ");
+            System.out.println("  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░██████▒░ ████▓▒░▒██████▒▒  ▒██▒ ░  ▒▄▄  ");
+            System.out.println("   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒    ░ ▒░▓  ░░ ▒░▒░▒░ ▒ ▒▓▒ ▒ ░  ▒ ░░    ░▀▀▒ ");
+            System.out.println(" ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░    ░ ░ ▒  ░  ░ ▒ ▒░ ░ ░▒  ░ ░    ░     ░  ░ ");
+            System.out.println(" ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░      ░ ░   ░ ░ ░ ▒  ░  ░  ░    ░          ░ ");
+            System.out.println(" ░ ░         ░ ░     ░            ░  ░    ░ ░        ░            ░    ");
+            System.out.println(" ░ ░                                                                   ");
+
+
+        }
+
+        public  void VypisVyhry(){
+            System.out.println("                    .-'''-.                                     .-'''-.                   ___   ");
+            System.out.println("                   '   _    \\                                  '   _    \\              .'/   \\  ");
+            System.out.println("                 /   /` '.   \\                               /   /` '.   \\    _..._   / /     \\ ");
+            System.out.println(" .-.          .-.   |     \\  '                       _     _.   |     \\  '  .'     '. | |     | ");
+            System.out.println("  \\ \\        / /|   '      |  '                 \\     \\\\   //|   '      |  '.   .-.   .| |     | ");
+            System.out.println("   \\ \\      / / \\    \\     / /                 `\\\\  //\\\\ // \\    \\     / / |  '   '  ||/`.   .' ");
+            System.out.println("    \\ \\    / /   `.   ` ..' /_    _              \\`//  \\'/   `.   ` ..' /  |  |   |  | `.|   |  ");
+            System.out.println("     \\ \\  / /       '-...-'`| '  / |              \\|   |/       '-...-'`   |  |   |  |  ||___|  ");
+            System.out.println("      \\ `  /               .' | .' |               '                       |  |   |  |  |/___/  ");
+            System.out.println("       \\  /                /  | /  |                                       |  |   |  |  .'.--.  ");
+            System.out.println("       / /                |   `'.  |                                       |  |   |  | | |    | ");
+            System.out.println("   |`-' /                 '   .'|  '/                                      |  |   |  | \\_\\    / ");
+            System.out.println("    '..'                   `-'  `--'                                       '--'   '--'  `''--'  ");
         }
 
     public Random getNahodnyVyber() {
